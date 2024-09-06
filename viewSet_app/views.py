@@ -24,13 +24,13 @@ class detial_viewset(viewsets.ModelViewSet):
 
             }
 
-    filterset_class=detailFilter
     filter_backends = (DjangoFilterBackend, OrderingFilter, SearchFilter)
 
     queryset=detail.objects.all()
     serializer_class=detailserializers
-    search_fields = ['name', 'email']  # Allows search for name or email via query params
-    ordering_fields = ['name', 'country']  # You can order by name and country
+    search_fields = ['name', 'email']  #  in url /?search=yukesh
+    ordering_fields = ['name', 'country']  #  in url /?ordering=name
+    filterset_class=detailFilter
 
 
 class single_detail_viewset(viewsets.ModelViewSet):
