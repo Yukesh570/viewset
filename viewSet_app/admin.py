@@ -5,7 +5,7 @@ from .models import *
 @admin.register(detail)
 class detailmaker(admin.ModelAdmin):
     list_display=(
-        ['name','age']          #this will display name and age of data in admin pannel
+        ['pk','name','age']          #this will display name and age of data in admin pannel
     )
 
     list_filter = [             

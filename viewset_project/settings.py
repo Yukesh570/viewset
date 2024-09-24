@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'viewSet_app',
     'rest_framework',
     'django_filters',
+    'django_celery_results',
     ]
 
 MIDDLEWARE = [
@@ -124,3 +125,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#celery_setting
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER='json'
+CELERY_TASK_SERIALIZER='json'
+CELERY_TIMEZONE='Asia/Kathmandu'
+CELERY_RESULT_BACKEND='redis://127.0.0.1:6379/0'  

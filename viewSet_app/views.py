@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from rest_framework import viewsets
 from .models import *
 from .serializers import *
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter, SearchFilter
 from django_filters import FilterSet
+from .task import test_func
 
 # Create your views here.
 
@@ -38,3 +39,8 @@ class single_detail_viewset(viewsets.ModelViewSet):
     queryset=detail.objects.all()
     serializer_class=detailserializers
     filter_backends = (DjangoFilterBackend, OrderingFilter, SearchFilter)
+
+
+def test(request):
+    test=test_func.apply_async().get(timeout=10)
+    return HttpResponse(test)

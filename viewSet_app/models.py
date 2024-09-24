@@ -11,6 +11,7 @@ class detail(models.Model):
     country=models.CharField(max_length=20,blank=False)
     age=models.IntegerField(null=True , blank=True,default=0)
     degree=models.CharField(max_length=20,blank=False)
+    dee=models.CharField(max_length=20,null=True)
 
     class Meta:
         ordering=["country"] 
